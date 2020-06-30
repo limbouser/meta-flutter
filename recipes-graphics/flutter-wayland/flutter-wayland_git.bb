@@ -6,7 +6,7 @@ SRC_URI = "git://github.com/jwinarske/flutter_wayland;protocol=https;branch=wayl
 
 DEPENDS =+ " flutter-engine wayland virtual/libgl waylandpp libxkbcommon rapidjson"
 
-RDEPENDS_${PN} = " flutter-engine wayland virtual/libgl freetype waylandpp libxkbcommon rapidjson"
+RDEPENDS_${PN} = " flutter-engine wayland broadcom-refsw freetype waylandpp libxkbcommon rapidjson"
 
 REQUIRED_DISTRO_FEATURES = "wayland"
 

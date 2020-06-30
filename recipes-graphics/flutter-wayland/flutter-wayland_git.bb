@@ -1,8 +1,8 @@
 LICENSE = "BSD-3-Clause"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=4fcc629d7a228e5e3e54c2fa1d73f774"
 
-SRCREV = "e4f481926bc9142ad43f1dd6ad32ddff0f343916"
-SRC_URI = "git://github.com/jwinarske/flutter_wayland;protocol=https;branch=waylandpp"
+SRCREV = "c2a9de8e3c72622027698936ff461cba45370454"
+SRC_URI = "git://github.com/limbouser/flutter_wayland.git;protocol=https;branch=wayland-box"
 
 DEPENDS =+ " flutter-engine wayland virtual/libgl waylandpp libxkbcommon rapidjson"
 

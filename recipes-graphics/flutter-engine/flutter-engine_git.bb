@@ -3,7 +3,7 @@ DESCRIPTION = "Flutter Engine"
 LICENSE = "BSD-3-Clause"
 LIC_FILES_CHKSUM = "file://flutter/LICENSE;md5=a60894397335535eb10b54e2fff9f265"
 
-SRCREV = "9e5072f0ce81206b99db3598da687a19ce57a863"
+#SRCREV = "9e5072f0ce81206b99db3598da687a19ce57a863"
 
 FILESEXTRAPATHS_prepend_poky := "${THISDIR}/files:"
 SRC_URI = "file://sysroot_gni.patch \
@@ -15,7 +15,7 @@ S = "${WORKDIR}/git/src"
 
 inherit python3native
 
-DEPENDS =+ " ninja-native depot-tools-native freetype"
+DEPENDS =+ " ninja-native depottools-native freetype"
 
 require gn-utils.inc
 
@@ -26,7 +26,7 @@ COMPATIBLE_MACHINE_armv7ve = "(.*)"
 COMPATIBLE_MACHINE_x86 = "(.*)"
 COMPATIBLE_MACHINE_x86-64 = "(.*)"
 
-PACKAGECONFIG ??= "embedder-for-target full-dart-sdk fontconfig skshaper stripped lto"
+PACKAGECONFIG ??= "embedder-for-target full-dart-sdk fontconfig skshaper stripped lto mode-release"
 
 PACKAGECONFIG[clang] = "--clang"
 PACKAGECONFIG[static-analyzer] = "--clang-static-analyzer"
@@ -99,7 +99,7 @@ do_patch() {
     fi
 
     cd ${S}
-    gclient.py sync --nohooks --no-history --revision ${SRCREV} ${PARALLEL_MAKE} -v
+    gclient.py sync --nohooks --no-history ${PARALLEL_MAKE} -v
     git apply ../../sysroot_gni.patch
     git apply ../../custom_BUILD_gn.patch
 
@@ -107,7 +107,7 @@ do_patch() {
     git apply ../../../../icu.patch
 }
 do_patch[depends] =+ " \
-    depot-tools-native:do_populate_sysroot \
+    depottools-native:do_populate_sysroot \
     "
 
 ARGS_GN_FILE = "${S}/${@get_out_dir(d)}/args.gn"

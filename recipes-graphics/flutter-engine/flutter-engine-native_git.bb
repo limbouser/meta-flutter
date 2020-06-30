@@ -3,7 +3,7 @@ DESCRIPTION = "Flutter Engine"
 LICENSE = "BSD-3-Clause"
 LIC_FILES_CHKSUM = "file://flutter/LICENSE;md5=a60894397335535eb10b54e2fff9f265"
 
-SRCREV = "9e5072f0ce81206b99db3598da687a19ce57a863"
+#SRCREV = "9e5072f0ce81206b99db3598da687a19ce57a863"
 
 S = "${WORKDIR}/git/src"
 
@@ -40,7 +40,7 @@ do_patch() {
     ]'
 
     cd ${S}
-    gclient.py sync --no-history --revision ${SRCREV} ${PARALLEL_MAKE} -v
+    gclient.py sync --no-history ${PARALLEL_MAKE} -v
 }
 do_patch[depends] =+ " \
     depot-tools-native:do_populate_sysroot \

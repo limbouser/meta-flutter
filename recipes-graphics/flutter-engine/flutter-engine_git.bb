@@ -15,7 +15,7 @@ S = "${WORKDIR}/git/src"
 
 inherit python3native
 
-DEPENDS =+ " ninja-native depottools-native freetype"
+DEPENDS =+ " ninja-native depot-tools-native freetype"
 
 require gn-utils.inc
 
@@ -107,7 +107,7 @@ do_patch() {
     git apply ../../../../icu.patch
 }
 do_patch[depends] =+ " \
-    depottools-native:do_populate_sysroot \
+    depot-tools-native:do_populate_sysroot \
     "
 
 ARGS_GN_FILE = "${S}/${@get_out_dir(d)}/args.gn"

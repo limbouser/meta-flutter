@@ -3,7 +3,7 @@ DESCRIPTION = "Flutter Engine"
 LICENSE = "BSD-3-Clause"
 LIC_FILES_CHKSUM = "file://flutter/LICENSE;md5=a60894397335535eb10b54e2fff9f265"
 
-#SRCREV = "9e5072f0ce81206b99db3598da687a19ce57a863"
+SRCREV = "ee76268252c22f5c11e82a7b87423ca3982e51a7"
 
 FILESEXTRAPATHS_prepend_poky := "${THISDIR}/files:"
 SRC_URI = "file://sysroot_gni.patch \
@@ -99,7 +99,7 @@ do_patch() {
     fi
 
     cd ${S}
-    gclient.py sync --nohooks --no-history ${PARALLEL_MAKE} -v
+    gclient.py sync --nohooks --revision ${SRCREV} --no-history ${PARALLEL_MAKE} -v
     git apply ../../sysroot_gni.patch
     git apply ../../custom_BUILD_gn.patch
 
